@@ -1,0 +1,9 @@
+.DS_Store
+.vscode/
+.idea/
+references/
+backend/.env
+frontend/.next/
+frontend/node_modules/
+frontend/*.tsbuildinfo
+frontend/.vercel/

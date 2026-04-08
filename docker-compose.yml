@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: openhours-postgres
+    environment:
+      POSTGRES_USER: openhours
+      POSTGRES_PASSWORD: openhours
+      POSTGRES_DB: openhours
+    ports:
+      - "54329:5432"
+    volumes:
+      - openhours_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U openhours -d openhours"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  openhours_pgdata:
